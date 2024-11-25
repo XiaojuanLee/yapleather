@@ -4,10 +4,10 @@ interface WorkshopCardProps {
     title: string;
     difficulty: string; //Difficulty level (e.g., Beginner, Intermediate, Advanced)
     price: string;
-    url: string;
+  
   }
   
-  export default function WorkshopCard({ title, image, difficulty, price, url }: WorkshopCardProps) {
+  export default function WorkshopCard({ title, image, difficulty, price }: WorkshopCardProps) {
     return (
       <div className="bg-white shadow-md flex flex-col h-full">
         <img src={image} alt={title} className="mt-4 w-full h-64 object-cover" />
