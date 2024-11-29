@@ -52,7 +52,7 @@ export const createContactUsAction = async (
 export const createWorkshopAction = async (
   prevState: any,
   formData: FormData
-) => {
+): Promise<{ message: string }> => {
   try {
     
     const workshopName = formData.get('workshopName')?.toString() || '';
@@ -77,10 +77,10 @@ export const createWorkshopAction = async (
         description: description,
       },
     });
+    return { message: 'Workshop created successfully' }; // 成功时返回此信息
   } catch (error) {
     return renderError(error);
   }
-  redirect('./');
 };
 
 
