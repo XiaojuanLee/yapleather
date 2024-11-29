@@ -76,6 +76,7 @@ export const createWorkshopAction = async (
       },
     });
     revalidatePath('/');
+    revalidatePath('/workshop');
     return { message: 'Workshop created successfully' }; 
   } catch (error) {
     return renderError(error);
