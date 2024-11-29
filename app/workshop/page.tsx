@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/table';
 
 import FormContainer from '@/components/form/FormContainer';
-import { IconButton, SubmitButton } from '@/components/form/Buttons';
+import { IconButton } from '@/components/form/Buttons';
 import { Button } from '@/components/ui/button';
 
 async function WorkshopsPage() {
