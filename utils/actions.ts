@@ -109,7 +109,7 @@ export async function deleteWorkshopAction(prevState: { workshopId: string }) {
         id: workshopId,
       },
     });
-
+    revalidatePath('/');
     revalidatePath('/workshop');
     return { message: 'workshop deleted successfully' };
   } catch (error) {
