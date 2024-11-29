@@ -3,17 +3,8 @@ import WorkshopsList from './WorkshopsList';
 import EmptyList from './EmptyList';
 import type { WorkshopCardProps } from '@/utils/types';
 
-async function WorkshopsContainer({
-  difficulty,
-  search,
-}: {
-  difficulty?: string;
-  search?: string;
-}) {
-  const workshops: WorkshopCardProps[] = await fetchClasses({
-    difficulty,
-    search,
-  });
+async function WorkshopsContainer() {
+  const workshops: WorkshopCardProps[] = await fetchClasses();
   if (workshops.length === 0) {
     return (
       <EmptyList

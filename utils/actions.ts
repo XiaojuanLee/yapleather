@@ -118,21 +118,9 @@ export async function deleteWorkshopAction(prevState: { workshopId: string }) {
 };
 
 
-export const fetchClasses = async ({
-  search = '',
-  difficulty,
-}: {
-  search?: string;
-  difficulty?: string;
-}) => {
+export const fetchClasses = async () => {
   const workshops = await db.workshop.findMany({
-    where: {
-      difficulty,
-      OR: [
-        { workshopName: { contains: search, mode: 'insensitive' } },
-        { difficulty: { contains: search, mode: 'insensitive' } },
-      ],
-    },
+    
     select: {
       id: true,
       workshopName: true,

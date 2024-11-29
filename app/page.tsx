@@ -3,11 +3,7 @@ import Banner from '@/components/home/Banner';
 import WorkshopsContainer from '@/components/home/WorkshopsContainer';
 import { Suspense } from 'react';
 
-function HomePage({
-  searchParams,
-}: {
-  searchParams: { difficulty?: string; search?: string };
-}) {
+function HomePage() {
   return (
     <div>
       <Banner></Banner>
@@ -17,10 +13,7 @@ function HomePage({
           <p className="mb-4">Join our workshops and craft your own unique leather items with expert guidance.</p>
         </div>
         <Suspense fallback={<LoadingCards />}>
-          <WorkshopsContainer
-            difficulty={searchParams.difficulty}
-            search={searchParams.search}
-          />
+          <WorkshopsContainer/>
         </Suspense>
       </section>
     </div>
