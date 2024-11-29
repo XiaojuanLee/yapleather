@@ -61,8 +61,6 @@ export const createWorkshopAction = async (
     const difficulty = formData.get('difficulty')?.toString() || '';
     const file = formData.get('image') as File;
     const description = formData.get('description')?.toString() || '';
-
-
     console.log({ workshopName, price, difficulty, description });
 
     const validatedFile = validateWithZodSchema(imageSchema, { image: file });
@@ -77,10 +75,11 @@ export const createWorkshopAction = async (
         description: description,
       },
     });
-    return { message: 'Workshop created successfully' }; // 成功时返回此信息
+    revalidatePath('/');
+    return { message: 'Workshop created successfully' }; 
   } catch (error) {
     return renderError(error);
-  }
+  }  
 };
 
 
@@ -110,8 +109,8 @@ export async function deleteWorkshopAction(prevState: { workshopId: string }) {
       },
     });
 
-    revalidatePath('/rentals');
-    return { message: 'Rental deleted successfully' };
+    revalidatePath('/workshop');
+    return { message: 'workshop deleted successfully' };
   } catch (error) {
     return renderError(error);
   }
