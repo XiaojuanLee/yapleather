@@ -8,10 +8,11 @@ import { redirect } from 'next/navigation';
 
 
 async function WorkshopDetailsPage({ params }: { params: { id: string } }) {
+  const { id } = params; 
 
-    const { id } = await params; 
-    const workshop = await fetchWorkshopDetails(id);
-    if (!workshop) redirect('/');
+  const workshop = await fetchWorkshopDetails(id);
+  if (!workshop) redirect('/');
+
 
     return (
       <section className='container py-10'>
