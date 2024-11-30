@@ -16,18 +16,18 @@ import { navlinks } from "@/utils/links";
 
 export default function Menu() {
     return(
-        <NavigationMenu>
-            <NavigationMenuList>
+        <NavigationMenu >
+            <NavigationMenuList >
                 <NavigationMenuItem>
-                <Link href="/" legacyBehavior passHref>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <Link href="/" legacyBehavior passHref >
+                    <NavigationMenuLink className="bg-[#067627] hover:text-black text-white text-sm font-medium leading-none" >
                     Home
                     </NavigationMenuLink>
                 </Link>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                <NavigationMenuTrigger>Leather Classes</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-[#067627] text-white">Leather Classes</NavigationMenuTrigger>
                 <NavigationMenuContent>
                     <ul className="grid w-[200px] gap-3 p-4 md:w-[300px] md:grid-cols-1 lg:w-[400px] ">
                     {navlinks.map((navlinks) => (
@@ -44,7 +44,7 @@ export default function Menu() {
 
                 <NavigationMenuItem>
                 <Link href="/contact" legacyBehavior passHref>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    <NavigationMenuLink className="bg-[#067627] hover:text-black text-white text-sm font-medium leading-none">
                     Contact Us
                     </NavigationMenuLink>
                 </Link>

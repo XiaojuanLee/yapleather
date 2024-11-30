@@ -4,13 +4,11 @@ import { WorkshopCardProps } from '@/utils/types';
 import { formatCurrency } from '@/utils/format';
 
 function WorkshopCard({ workshop }: { workshop: WorkshopCardProps }) {
-  const { workshopName, image, difficulty, price } = workshop;
-  // const { id: workshopId, workshopName, image, difficulty, price } = workshop;
+  const { id: workshopId, workshopName, image, difficulty, price } = workshop;
 
   return (
     <article className='group relative shadow-md'>
-      <Link href={'/'}>
-      {/* <Link href={`/classes/${workshopId}`}> */}
+      <Link href={`/classes/${workshopId}`}>
         <div className='relative h-[200px] mb-2 overflow-hidden rounded-md'>
           <Image
             src={image}

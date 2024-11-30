@@ -134,3 +134,12 @@ export const fetchClasses = async () => {
   });
   return workshops;
 };
+
+
+export const fetchWorkshopDetails = async (id: string) => {
+  return db.workshop.findUnique({
+    where: {
+      id,
+    },
+  });
+};

@@ -2,6 +2,9 @@ import LoadingCards from '@/components/card/LoadingCards';
 import Banner from '@/components/home/Banner';
 import WorkshopsContainer from '@/components/home/WorkshopsContainer';
 import { Suspense } from 'react';
+import MyMap from '@/components/home/MyMap';
+import Footer from '@/components/home/Footer';
+import BackToTop from '@/components/home/BackToTop';
 
 function HomePage() {
   return (
@@ -16,6 +19,11 @@ function HomePage() {
           <WorkshopsContainer/>
         </Suspense>
       </section>
+      <MyMap></MyMap>
+      <Footer></Footer>
+
+
+      
     </div>
   );
 }
