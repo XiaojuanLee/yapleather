@@ -10,10 +10,9 @@ import { redirect } from 'next/navigation';
 // async function WorkshopDetailsPage({ params }: { params: { id: string } }) {
 //   const workshop = await fetchWorkshopDetails(params.id);
 
-// Use an async function and await params inside
+
 async function WorkshopDetailsPage({ params }: { params: { id: string } }) {
-  // Await params first
-  const { id } = await params; // This will handle the asynchronous nature of `params`
+  const { id } = await params; 
 
   const workshop = await fetchWorkshopDetails(id);
 
