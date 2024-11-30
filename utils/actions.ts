@@ -136,10 +136,10 @@ export const fetchClasses = async () => {
 };
 
 
-import { Workshop } from '@prisma/client';
-
-export const fetchWorkshopDetails = async (id: string): Promise<Workshop | null> => {
-  return db.workshop.findUnique({
-    where: { id },
+export const fetchWorkshopDetails = async (id: string) => {
+  return await db.workshop.findUnique({
+    where: {
+      id,
+    },
   });
 };
