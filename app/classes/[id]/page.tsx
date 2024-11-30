@@ -7,8 +7,13 @@ import { formatCurrency } from '@/utils/format';
 import { redirect } from 'next/navigation';
 
 
+// async function WorkshopDetailsPage({ params }: { params: { id: string } }) {
+//   const workshop = await fetchWorkshopDetails(params.id);
+
 async function WorkshopDetailsPage({ params }: { params: { id: string } }) {
-  const workshop = await fetchWorkshopDetails(params.id);
+  // asynchronous access of `params.id`.
+  const { id } = params
+  const workshop = await fetchWorkshopDetails(id);
 
   if (!workshop) redirect('/');
 
