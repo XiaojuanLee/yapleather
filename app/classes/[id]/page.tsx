@@ -8,9 +8,8 @@ import { redirect } from 'next/navigation';
 
 
 async function WorkshopDetailsPage({ params }: { params: { id: string } }) {
-  const { id } = params; 
+  const workshop = await fetchWorkshopDetails(params.id);
 
-  const workshop = await fetchWorkshopDetails(id);
   if (!workshop) redirect('/');
 
 
