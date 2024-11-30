@@ -130,13 +130,13 @@ export const fetchClasses = async () => {
     },
     orderBy: {
       updatedAt: 'desc',
-    },
+    }, 
   });
   return workshops;
 };
 
 
-export const fetchWorkshopDetails = async (id: string) => {
+export const fetchWorkshopDetails = (id: string) => {
   return db.workshop.findUnique({
     where: {
       id,

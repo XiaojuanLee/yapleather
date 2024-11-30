@@ -16,6 +16,7 @@ async function WorkshopDetailsPage({ params }: { params: { id: string } }) {
 
   const workshop = await fetchWorkshopDetails(id);
 
+
   if (!workshop) redirect('/');
 
 
