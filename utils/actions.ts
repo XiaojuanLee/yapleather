@@ -136,7 +136,7 @@ export const fetchClasses = async () => {
 };
 
 
-export const fetchWorkshopDetails = (id: string) => {
+export const fetchWorkshopDetails = async (id: string) => {
   return db.workshop.findUnique({
     where: {
       id,

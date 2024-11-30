@@ -7,19 +7,10 @@ import { formatCurrency } from '@/utils/format';
 import { redirect } from 'next/navigation';
 
 
-// async function WorkshopDetailsPage({ params }: { params: { id: string } }) {
-//   const workshop = await fetchWorkshopDetails(params.id);
-
-
-async function WorkshopDetailsPage({ params }: { params: { id: string } }) {
-  const { id } = await params; 
-
+ async function WorkshopDetailsPage({ params }: { params: { id: string } }) {
+  const { id } = await Promise.resolve(params); 
   const workshop = await fetchWorkshopDetails(id);
-
-
   if (!workshop) redirect('/');
-
-
     return (
       <section className='container py-10'>
         <BreadCrumbs name={workshop.workshopName} />
