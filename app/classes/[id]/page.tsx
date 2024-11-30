@@ -6,14 +6,12 @@ import { fetchWorkshopDetails } from '@/utils/actions';
 import { formatCurrency } from '@/utils/format';
 import { redirect } from 'next/navigation';
 
-interface WorkshopDetailsPageProps {
-  params: { id: string };
-}
 
-async function WorkshopDetailsPage({ params }: WorkshopDetailsPageProps) {
-  const { id } = params; 
-  const workshop = await fetchWorkshopDetails(id);
-  if (!workshop) redirect('/');
+async function WorkshopDetailsPage({ params }: { params: { id: string } }) {
+
+    const { id } = await params; 
+    const workshop = await fetchWorkshopDetails(id);
+    if (!workshop) redirect('/');
 
     return (
       <section className='container py-10'>
