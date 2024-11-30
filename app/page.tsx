@@ -4,7 +4,6 @@ import WorkshopsContainer from '@/components/home/WorkshopsContainer';
 import { Suspense } from 'react';
 import MyMap from '@/components/home/MyMap';
 import Footer from '@/components/home/Footer';
-import BackToTop from '@/components/home/BackToTop';
 
 function HomePage() {
   return (
