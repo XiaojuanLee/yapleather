@@ -37,7 +37,7 @@ async function WorkshopsPage() {
           <Link href='/workshop/create'>Create Workshop</Link>
         </Button>
       </div>
-      
+
       <Table>
         <TableCaption>A list of all your workshops.</TableCaption>
         <TableHeader>
@@ -79,8 +79,18 @@ async function WorkshopsPage() {
   );
 }
 
+// function DeleteWorkshop({ workshopId }:  { workshopId: string }) {
+
+  // return (
+  //   <FormContainer action={deleteWorkshopAction}>
+  //     <IconButton actionType='delete'></IconButton>
+  //   </FormContainer>
+  // );
+// }
+
 function DeleteWorkshop({ workshopId }: { workshopId: string }) {
-  const deleteWorkshop = deleteWorkshopAction.bind(null, { workshopId });
+  const deleteWorkshop = deleteWorkshopAction.bind(null, { workshopId } );
+
   return (
     <FormContainer action={deleteWorkshop}>
       <IconButton actionType='delete' />

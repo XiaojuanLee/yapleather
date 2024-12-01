@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { actionFunction } from '@/utils/types';
 import { useToast } from '@/hooks/use-toast';
-import { useFormState } from 'react-dom';
+import {useFormState} from "react-dom";
 
 const initialState = {
   message: '',
