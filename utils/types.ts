@@ -1,7 +1,7 @@
 export type actionFunction = (
   prevState: any,
   formData: FormData
-) => Promise<{ message: string }>;
+) => { message: string };
 
 export type WorkshopCardProps = {
   image: string;
