@@ -15,7 +15,7 @@ export default function Footer() {
             <FaTiktok></FaTiktok>
             </Link>
           </div>
-          <p>© 2023 Yap Leather Studio. All rights reserved.</p>
+          <p>Copyright © 2024 Yap Leather Studio. All rights reserved.</p>
           <p>4 Deerfield Dr, Nepean, Ottawa, Ontario</p>
           <p>Phone: 613-863-0315</p>
         </div>

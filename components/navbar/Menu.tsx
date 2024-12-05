@@ -19,7 +19,7 @@ export default function Menu() {
             <NavigationMenuList >
                 <NavigationMenuItem>
                 <Link href="/" legacyBehavior passHref >
-                    <NavigationMenuLink className="bg-[#067627] hover:text-black text-white text-sm font-medium leading-none" >
+                    <NavigationMenuLink className="bg-[#067627] hover:text-black text-white text-sm font-medium leading-none px-4" >
                     Home
                     </NavigationMenuLink>
                 </Link>
