@@ -5,13 +5,17 @@ import { formatCurrency } from '@/utils/format';
 
 function WorkshopCard({ workshop }: { workshop: WorkshopCardProps }) {
   const { id: workshopId, workshopName, image, difficulty, price } = workshop;
+  // const images = Array.isArray(image) ? image : [image]; 
+  const images = JSON.parse(image); 
+  const firstImage = images[0]; 
+  console.log(firstImage);
 
   return (
     <article className='group relative shadow-md'>
       <Link href={`/classes/${workshopId}`}>
         <div className='relative h-[200px] mb-2 overflow-hidden rounded-md'>
           <Image
-            src={image}
+            src={firstImage}
             fill
             sizes='(max-width:768px) 100vw, 50vw'
             alt={workshopName}
@@ -30,6 +34,7 @@ function WorkshopCard({ workshop }: { workshop: WorkshopCardProps }) {
           <p className='text-base mt-1'>
             <span className='font-semibold'>{formatCurrency(price)} </span>
           </p>
+          <p className='text-xs'>Leather Workshop</p>
         </div>
       </Link>
     </article>

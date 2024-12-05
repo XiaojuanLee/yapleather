@@ -4,7 +4,7 @@
 
 @layer components {
   .container {
-    @apply mx-auto max-w-6xl xl:max-w-7xl px-8;
+    @apply mx-auto max-w-6xl xl:max-w-7xl px-0;
   }
 }
 
@@ -73,4 +73,20 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+main {
+  flex: 1; 
 }

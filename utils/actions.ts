@@ -59,22 +59,33 @@ export const createWorkshopAction = async (
     const priceString = formData.get('price')?.toString() || '0';
     const price = parseFloat(priceString);
     const difficulty = formData.get('difficulty')?.toString() || '';
-    const file = formData.get('image') as File;
     const description = formData.get('description')?.toString() || '';
-    console.log({ workshopName, price, difficulty, description });
+    
 
-    const validatedFile = validateWithZodSchema(imageSchema, { image: file });
-    const fullPath = await uploadImage(validatedFile.image);
 
-    await db.workshop.create({
+    const images = formData.getAll('images');
+    const imagePaths = [];
+
+    for (const image of images) {
+      if (image instanceof File) {
+        const validatedFile = validateWithZodSchema(imageSchema, { image: image });
+        const imagePath = await uploadImage(validatedFile.image);
+        imagePaths.push(imagePath);
+      }
+    }
+    
+    console.log({ workshopName, price, difficulty, description, imagePaths });
+
+    await db.workshop_test.create({
       data: {
         workshopName: workshopName,
         price: price,
         difficulty: difficulty,
-        image: fullPath,
         description: description,
+        image: JSON.stringify(imagePaths), 
       },
     });
+
     revalidatePath('/');
     revalidatePath('/workshop');
     return { message: 'Workshop created successfully' }; 
@@ -85,7 +96,7 @@ export const createWorkshopAction = async (
 
 
 export const fetchWorkshops = async () => {
-  const workshops = await db.workshop.findMany({
+  const workshops = await db.workshop_test.findMany({
     
     select: {
       id: true,
@@ -118,8 +129,9 @@ export async function deleteWorkshopAction(prevState: { workshopId: string }) {
 };
 
 
+
 export const fetchClasses = async () => {
-  const workshops = await db.workshop.findMany({
+  const workshops = await db.workshop_test.findMany({
     
     select: {
       id: true,
@@ -137,9 +149,51 @@ export const fetchClasses = async () => {
 
 
 export const fetchWorkshopDetails = async (id: string) => {
-  return await db.workshop.findUnique({
+  return await db.workshop_test.findUnique({
     where: {
       id,
     },
   });
 };
+
+
+export const createBookingAction = async (
+  prevState: any,
+  formData: FormData
+): Promise<{ message: string }> => {
+
+
+  try {
+    const workshopId = formData.get('workshopId')?.toString() || '';
+    const numberOfPeople = parseInt(formData.get('numberOfPeople')?.toString() || '1', 10);
+    const fullName = formData.get('fullName')?.toString() || '';
+    const email = formData.get('email')?.toString() || '';
+    const phone = formData.get('phone')?.toString() || '';
+    const scheduledDate = new Date(formData.get('scheduledDate')?.toString() || '');
+
+    console.log({ workshopId, numberOfPeople, fullName, email, phone, scheduledDate});
+
+    
+
+    // 创建预订记录
+    await db.booking.create({
+      data: {
+        workshopId,
+        numberOfPeople,
+        fullName,
+        email,
+        phone,
+        scheduledDate: scheduledDate,
+        orderTotal: 0,
+        paymentStatus: false, // 初始设置为未支付
+      },
+    });
+
+    // 重定向到成功页面
+    revalidatePath("/");
+    return { message: 'Workshop created successfully' }; 
+  } catch (error) {
+    console.error('Error creating booking:', error);
+    throw new Error('Failed to create booking. Please try again later.');
+  }
+}

@@ -2,11 +2,11 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 
 function ImageInput() {
-  const name = 'image';
+  const name = 'images'; 
   return (
     <div className='mb-2'>
       <Label htmlFor={name} className='capitalize'>
-        Image
+        Images
       </Label>
       <Input
         id={name}
@@ -14,9 +14,11 @@ function ImageInput() {
         type='file'
         required
         accept='image/*'
+        multiple 
         className='max-w-xs'
       />
     </div>
   );
 }
+
 export default ImageInput;

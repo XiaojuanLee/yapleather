@@ -32,3 +32,30 @@ description String
 createdAt DateTime @default(now())
 updatedAt   DateTime   @updatedAt
 }
+
+model workshop_test {
+id  String @id @default(uuid())
+workshopName String
+price Int
+difficulty String
+image String
+description String
+createdAt DateTime @default(now())
+updatedAt   DateTime   @updatedAt
+bookings booking[]
+}
+
+model booking {
+  id        String   @id @default(uuid())
+  workshop_test  workshop_test  @relation(fields: [workshopId], references: [id], onDelete: Cascade)
+  workshopId String
+  orderTotal     Int
+  numberOfPeople    Int
+  fullName String
+  email String
+  phone String
+  scheduledDate   DateTime
+  paymentStatus Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
