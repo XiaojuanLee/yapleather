@@ -11,7 +11,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
-import { navlinks } from "@/utils/links";
+// import { navlinks } from "@/utils/links";
 
 export default function Menu() {
     return(
