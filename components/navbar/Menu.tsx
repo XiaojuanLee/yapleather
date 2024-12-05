@@ -25,7 +25,7 @@ export default function Menu() {
                 </Link>
                 </NavigationMenuItem>
                 
-                <NavigationMenuItem>
+                {/* <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-[#067627] text-white">Leather Classes</NavigationMenuTrigger>
                 <NavigationMenuContent>
                     <ul className="grid w-[200px] gap-3 p-4 md:w-[300px] md:grid-cols-1 lg:w-[400px] ">
@@ -39,7 +39,7 @@ export default function Menu() {
                     ))}
                     </ul>
                 </NavigationMenuContent>
-                </NavigationMenuItem>
+                </NavigationMenuItem> */}
 
                 <NavigationMenuItem>
                 <Link href="/contact" legacyBehavior passHref>

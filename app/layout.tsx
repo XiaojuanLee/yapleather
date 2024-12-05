@@ -8,7 +8,7 @@ import { Analytics } from '@vercel/analytics/next';
 const inter = Inter({subsets:['latin']});
 
 export const metadata: Metadata = {
-  title: "Yap Leather",
+  title: "YAPLEATHER",
   description: "Learn, Craft, and Master Leatherwork",
   icons: {
     icon: '/favicon.ico', // Update this path if your favicon is named differently or located in a subdirectory
