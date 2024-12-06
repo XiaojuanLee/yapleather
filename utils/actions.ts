@@ -76,6 +76,7 @@ export const createWorkshopAction = async (
     
     console.log({ workshopName, price, difficulty, description, imagePaths });
 
+    
     await db.workshop_test.create({
       data: {
         workshopName: workshopName,
@@ -169,13 +170,34 @@ export const createBookingAction = async (
     const fullName = formData.get('fullName')?.toString() || '';
     const email = formData.get('email')?.toString() || '';
     const phone = formData.get('phone')?.toString() || '';
-    const scheduledDate = new Date(formData.get('scheduledDate')?.toString() || '');
 
-    console.log({ workshopId, numberOfPeople, fullName, email, phone, scheduledDate});
-
+    // Get the date and time from the form data
+    const scheduledDate = formData.get("scheduledDate")?.toString() || "";
+        const scheduledTime = formData.get("scheduledTime")?.toString() || "";
     
+    // Combine date and time into a DateTime object
+    const scheduledDateTime = new Date(`${scheduledDate}T${scheduledTime}`);
 
-    // 创建预订记录
+    console.log({ workshopId, numberOfPeople, fullName, email, phone, scheduledDate, scheduledTime, scheduledDateTime});
+
+        // Step 1: Check if the selected date and time is already booked
+        const existingBooking = await db.booking.findFirst({
+          where: {
+            workshopId: {
+              not: workshopId,
+            },
+            scheduledDate: scheduledDateTime, // Ensure it matches the exact date and time
+          },
+        });
+    
+        // If there's an existing booking, return an error message
+        if (existingBooking) {
+          return {
+            message: 'Sorry, this time slot is already booked. Please choose another time.',
+          };
+        }
+    
+        // Step 2: If no conflict, create the booking
     await db.booking.create({
       data: {
         workshopId,
@@ -183,15 +205,15 @@ export const createBookingAction = async (
         fullName,
         email,
         phone,
-        scheduledDate: scheduledDate,
+        scheduledDate: scheduledDateTime,
         orderTotal: 0,
-        paymentStatus: false, // 初始设置为未支付
+        paymentStatus: false, // Initial payment status
       },
     });
 
-    // 重定向到成功页面
-    revalidatePath("/");
-    return { message: 'Workshop created successfully' }; 
+        // Step 3: Return success message
+        revalidatePath("/");
+        return { message: 'Your booking has been successfully created.' };
   } catch (error) {
     console.error('Error creating booking:', error);
     throw new Error('Failed to create booking. Please try again later.');

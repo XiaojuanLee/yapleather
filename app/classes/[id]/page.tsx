@@ -1,5 +1,3 @@
-
-
 import { BookingCalendar } from '@/components/booking/ bookingCalendar';
 import { BookingSelect } from '@/components/booking/bookingSelect';
 import BreadCrumbs from '@/components/workshop/BreadCrumbs';
@@ -11,7 +9,7 @@ import FormContainer from '@/components/form/FormContainer';
 import { createBookingAction } from '@/utils/actions';
 import FormInput from '@/components/form/FormInput';
 import { SubmitButton } from '@/components/form/Buttons';
-
+import { Label } from '@/components/ui/label';
 
 
  async function WorkshopDetailsPage({ params }: { params: { id: string } }) {
@@ -26,6 +24,7 @@ import { SubmitButton } from '@/components/form/Buttons';
   const images = JSON.parse(workshop.image); 
 
 
+  
     return (
       <section className='container py-10'>
         <BreadCrumbs name={workshop.workshopName} />
@@ -50,8 +49,8 @@ import { SubmitButton } from '@/components/form/Buttons';
                   <div className='mb-2'>
                     <BookingCalendar name='scheduledDate'/>
                   </div>
-
                   <div className='mb-2'>
+                    <Label>Preferred time</Label>
                     <BookingSelect name='scheduledTime' />
                   </div>
 
@@ -62,16 +61,13 @@ import { SubmitButton } from '@/components/form/Buttons';
                   <SubmitButton text='Reserve' className='px-24' />
 
                 </FormContainer>
-                
-          
-
-                
 
             </div>
           </div>
           
         </div>
         
+
       </section>
     );
   }

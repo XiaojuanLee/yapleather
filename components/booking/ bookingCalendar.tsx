@@ -22,7 +22,7 @@ export function BookingCalendar({ name }: BookingCalendarProps) {
     <input
         type="hidden"
         name={name}
-        value={date ? date.toISOString() : ""}
+        value={date ? date.toISOString().split("T")[0] : ""}
       />
     </div>
   )
