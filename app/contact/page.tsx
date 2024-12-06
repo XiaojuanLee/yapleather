@@ -13,7 +13,7 @@ export default async function ContactUs() {
 
             <div className='border p-8 rounded-md '>
                 <div className="flex flex-col justify-between items-center">
-                <h1 className='text-3xl font-bold capitalize mb-4'>Comtact Us</h1>
+                <h1 className='text-3xl font-bold capitalize mb-4'>Contact Us</h1>
                     <p>Looking for a private Event/Workshop experience?</p>
                     <p>Do some of our dates not work?</p>
                     <p className="mb-4">Have a small group in mind?</p>
