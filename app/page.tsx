@@ -3,7 +3,6 @@ import Banner from '@/components/home/Banner';
 import WorkshopsContainer from '@/components/home/WorkshopsContainer';
 import { Suspense } from 'react';
 import MyMap from '@/components/home/MyMap';
-import Footer from '@/components/home/Footer';
 
 function HomePage() {
   return (
