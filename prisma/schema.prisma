@@ -33,21 +33,9 @@ createdAt DateTime @default(now())
 updatedAt   DateTime   @updatedAt
 }
 
-model workshop_test {
-id  String @id @default(uuid())
-workshopName String
-price Int
-difficulty String
-image String
-description String
-createdAt DateTime @default(now())
-updatedAt   DateTime   @updatedAt
-bookings booking[]
-}
-
-model booking {
+model Booking {
   id        String   @id @default(uuid())
-  workshop_test  workshop_test  @relation(fields: [workshopId], references: [id], onDelete: Cascade)
+  Workshops  Workshops  @relation(fields: [workshopId], references: [id], onDelete: Cascade)
   workshopId String
   orderTotal     Int
   numberOfPeople    Int
@@ -58,4 +46,16 @@ model booking {
   paymentStatus Boolean @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Workshops {
+id  String @id @default(uuid())
+workshopName String
+price Int
+difficulty String
+image String
+description String
+createdAt DateTime @default(now())
+updatedAt   DateTime   @updatedAt
+bookings Booking[]
 }

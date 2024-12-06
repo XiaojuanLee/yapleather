@@ -77,7 +77,7 @@ export const createWorkshopAction = async (
     console.log({ workshopName, price, difficulty, description, imagePaths });
 
     
-    await db.workshop_test.create({
+    await db.workshops.create({
       data: {
         workshopName: workshopName,
         price: price,
@@ -97,7 +97,7 @@ export const createWorkshopAction = async (
 
 
 export const fetchWorkshops = async () => {
-  const workshops = await db.workshop_test.findMany({
+  const workshops = await db.workshops.findMany({
     
     select: {
       id: true,
@@ -116,7 +116,7 @@ export async function deleteWorkshopAction(prevState: { workshopId: string }) {
   const { workshopId } = prevState;
 
   try {
-    await db.workshop.delete({
+    await db.workshops.delete({
       where: {
         id: workshopId,
       },
@@ -132,7 +132,7 @@ export async function deleteWorkshopAction(prevState: { workshopId: string }) {
 
 
 export const fetchClasses = async () => {
-  const workshops = await db.workshop_test.findMany({
+  const workshops = await db.workshops.findMany({
     
     select: {
       id: true,
@@ -150,7 +150,7 @@ export const fetchClasses = async () => {
 
 
 export const fetchWorkshopDetails = async (id: string) => {
-  return await db.workshop_test.findUnique({
+  return await db.workshops.findUnique({
     where: {
       id,
     },
