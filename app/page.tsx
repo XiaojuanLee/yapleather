@@ -19,9 +19,6 @@ function HomePage() {
         </Suspense>
       </section>
       <MyMap></MyMap>
-      <Footer></Footer>
-
-
       
     </div>
   );
