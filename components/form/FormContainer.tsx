@@ -27,8 +27,9 @@ function FormContainer({
 
       if (state.message === 'Sorry, this time slot is already booked. Please choose another time.') {
         setErrorMessage('The preferred time you selected is fully booked. Please choose another time.');
-      } else {
-        setErrorMessage('');  
+      } 
+      else {
+        setErrorMessage('Your booking is successful! A confirmation email will be sent to you shortly.');  
       }
     }
   }, [state, toast]);

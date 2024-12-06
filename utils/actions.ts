@@ -212,7 +212,7 @@ export const createBookingAction = async (
     });
 
         // Step 3: Return success message
-        revalidatePath("/");
+        revalidatePath(`/classes/${workshopId}`);
         return { message: 'Your booking has been successfully created.' };
   } catch (error) {
     console.error('Error creating booking:', error);

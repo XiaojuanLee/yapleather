@@ -27,7 +27,7 @@ export default function Footer() {
           <p>Copyright © 2024 Yap Leather Studio. All rights reserved.</p>
           <p>4 Deerfield Dr, Nepean, Ottawa, Ontario</p>
           <p>yapeng@yapleather.com</p>
-          <p>Phone: 613-863-0315</p>
+          <p>613-863-0315</p>
         </div>
       </footer>
     );
