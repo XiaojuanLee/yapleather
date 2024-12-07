@@ -29,7 +29,7 @@ function FormContainer({
         setErrorMessage('The preferred time you selected is fully booked. Please choose another time.');
       } 
       else {
-        setErrorMessage('Your booking is successful! A confirmation email will be sent to you shortly.');  
+        setErrorMessage('');  
       }
     }
   }, [state, toast]);
