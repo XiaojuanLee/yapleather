@@ -24,7 +24,7 @@ function WorkshopCard({ workshop }: { workshop: WorkshopCardProps }) {
         </div>
         <div className='flex justify-between items-center'>
           <h3 className='text-base font-semibold mt-1 px-6'>
-            {workshopName.substring(0, 30)}
+            {workshopName}
           </h3>
         </div>
         <p className='text-base mt-1 text-muted-foreground px-6'>
