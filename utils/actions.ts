@@ -83,7 +83,7 @@ export const createWorkshopAction = async (
 
     
     await db.workshops.create({
-      data: {
+      data: { 
         workshopName: workshopName,
         price: price,
         difficulty: difficulty,
