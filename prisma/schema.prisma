@@ -54,6 +54,9 @@ workshopName String
 price Int
 difficulty String
 image String
+size String @default("")
+sort Int @default(99)
+ticket Int @default(10)
 description String
 createdAt DateTime @default(now())
 updatedAt   DateTime   @updatedAt

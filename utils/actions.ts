@@ -59,7 +59,12 @@ export const createWorkshopAction = async (
     const priceString = formData.get('price')?.toString() || '0';
     const price = parseFloat(priceString);
     const difficulty = formData.get('difficulty')?.toString() || '';
+    const size = formData.get('size')?.toString() || '0';
+    const sortString = formData.get('sort')?.toString() || '0';
+    const sort = parseInt(sortString);
     const description = formData.get('description')?.toString() || '';
+    const ticketString = formData.get('ticket')?.toString() || '0';
+    const ticket = parseInt(ticketString);
     
 
 
@@ -82,6 +87,9 @@ export const createWorkshopAction = async (
         workshopName: workshopName,
         price: price,
         difficulty: difficulty,
+        size:size,
+        sort:sort,
+        ticket:ticket,
         description: description,
         image: JSON.stringify(imagePaths), 
       },
@@ -142,7 +150,7 @@ export const fetchClasses = async () => {
       image: true,
     },
     orderBy: {
-      updatedAt: 'desc',
+      sort: 'asc',
     }, 
   });
   return workshops;

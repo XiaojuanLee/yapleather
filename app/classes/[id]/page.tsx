@@ -38,7 +38,9 @@ import { Label } from '@/components/ui/label';
                 <h2 className='text-xl font-bold capitalize mb'>Leather Workshop</h2>
                 <p>Level: {workshop.difficulty}</p>
                 <p className='text-base mt-1'>Workshop Fee: CA{formatCurrency(workshop.price)} (includes materials)</p>
+                <p>Size: {workshop.size}</p>
                 <p>Description: {workshop.description}</p>
+                <p>Available ticket quantity: {workshop.ticket}</p>
               </div>
               <div className='mr-auto'>
                 <h2 className='text-xl font-bold capitalize mb'>

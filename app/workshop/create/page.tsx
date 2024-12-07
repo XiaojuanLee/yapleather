@@ -26,6 +26,31 @@ function CreateWorkshopPage() {
             <PriceInput />
             <DifficultyInput/>
             <ImageInput />
+            
+            <FormInput
+              name='sort'
+              type='number'
+              label='Sort'
+            />
+            <FormInput
+              name='ticket'
+              type='number'
+              label='Available ticket quantity'
+            />
+            
+            {/* size */}
+            <div>
+              <Label htmlFor='size' className='capitalize'>
+                Size
+              </Label>
+              <Textarea
+                  id= 'size'
+                  name= 'size'
+                  rows= {2}
+                  required
+                  className='leading-loose'
+                />
+            </div>
 
             {/* description */}
             <div>
@@ -40,6 +65,9 @@ function CreateWorkshopPage() {
                   className='leading-loose'
                 />
             </div>
+            
+
+
           </div>
           <SubmitButton text='create workshop' className='mt-12' />
         </FormContainer>
