@@ -112,7 +112,12 @@ export const fetchWorkshops = async () => {
       workshopName: true,
       difficulty: true,
       price: true,
+      sort: true,
+      ticket: true,
     },
+    orderBy: {
+      sort: 'asc',
+    }, 
   });
   
   return workshops;
@@ -166,6 +171,7 @@ export const fetchWorkshopDetails = async (id: string) => {
 };
 
 
+
 export const createBookingAction = async (
   prevState: any,
   formData: FormData
@@ -201,7 +207,7 @@ export const createBookingAction = async (
         // If there's an existing booking, return an error message
         if (existingBooking) {
           return {
-            message: 'Sorry, this time slot is already booked. Please choose another time.',
+            message: 'The preferred time you selected is fully booked. Please choose another time.',
           };
         }
     
@@ -230,3 +236,46 @@ export const createBookingAction = async (
   redirect('/classes/booking_success');
 
 }
+
+
+
+export const updateWorkshopAction = async (
+  prevState: any,
+  formData: FormData
+): Promise<{ message: string }> => {
+  const workshopId = formData.get('id') as string;
+
+  try {
+    const workshopName = formData.get('workshopName')?.toString() || '';
+    const priceString = formData.get('price')?.toString() || '0';
+    const price = parseFloat(priceString);
+    const difficulty = formData.get('difficulty')?.toString() || '';
+    const size = formData.get('size')?.toString() || '0';
+    const sortString = formData.get('sort')?.toString() || '0';
+    const sort = parseInt(sortString);
+    const description = formData.get('description')?.toString() || '';
+    const ticketString = formData.get('ticket')?.toString() || '0';
+    const ticket = parseInt(ticketString);
+
+
+    await db.workshops.update({
+      where: {
+        id: workshopId,
+      },
+      data: {
+        workshopName: workshopName,
+        price: price,
+        difficulty: difficulty,
+        size:size,
+        sort:sort,
+        ticket:ticket,
+        description: description,
+      },
+    });
+
+    revalidatePath(`/workshop/${workshopId}/edit`);
+    return { message: 'Update Successful!' };
+  } catch (error) {
+    return renderError(error);
+  }
+};

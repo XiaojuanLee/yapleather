@@ -45,12 +45,14 @@ async function WorkshopsPage() {
             <TableHead>Workshop Name</TableHead>
             <TableHead>Price</TableHead>
             <TableHead>Difficulty</TableHead>
+            <TableHead>Number of Ticket</TableHead>
+            <TableHead>Sort</TableHead>
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {workshops.map((workshop) => {
-            const { id: workshopId, workshopName, price, difficulty } = workshop;
+            const { id: workshopId, workshopName, price, difficulty, ticket, sort } = workshop;
             return (
               <TableRow key={workshopId}>
                 <TableCell>
@@ -61,8 +63,12 @@ async function WorkshopsPage() {
                     {workshopName}
                   </Link>
                 </TableCell>
-                <TableCell>{difficulty}</TableCell>
                 <TableCell>{formatCurrency(price)}</TableCell>
+                <TableCell>{difficulty}</TableCell>
+                <TableCell>{ticket}</TableCell>
+                <TableCell>{sort}</TableCell>
+                
+                
 
                 <TableCell className='flex items-center gap-x-2'>
                   <Link href={`/workshop/${workshopId}/edit`}>
@@ -78,15 +84,6 @@ async function WorkshopsPage() {
     </div>
   );
 }
-
-// function DeleteWorkshop({ workshopId }:  { workshopId: string }) {
-
-  // return (
-  //   <FormContainer action={deleteWorkshopAction}>
-  //     <IconButton actionType='delete'></IconButton>
-  //   </FormContainer>
-  // );
-// }
 
 function DeleteWorkshop({ workshopId }: { workshopId: string }) {
   const deleteWorkshop = deleteWorkshopAction.bind(null, { workshopId } );

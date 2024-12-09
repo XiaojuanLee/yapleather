@@ -65,9 +65,6 @@ function CreateWorkshopPage() {
                   className='leading-loose'
                 />
             </div>
-            
-
-
           </div>
           <SubmitButton text='create workshop' className='mt-12' />
         </FormContainer>

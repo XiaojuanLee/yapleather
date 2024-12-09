@@ -7,6 +7,8 @@ import { Analytics } from '@vercel/analytics/next';
 
 
 import Footer from "@/components/home/Footer";
+import { Toaster } from "@/components/ui/toaster"
+
 
 
 const inter = Inter({subsets:['latin']});
@@ -29,6 +31,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar/>
         <main>{children}</main>
+        <Toaster />
 
         <Analytics />
 
