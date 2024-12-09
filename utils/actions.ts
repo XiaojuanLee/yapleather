@@ -220,10 +220,13 @@ export const createBookingAction = async (
     });
 
         // Step 3: Return success message
-        revalidatePath(`/classes/${workshopId}`);
-        return { message: 'Your booking has been successfully created.' };
+        // return { message: 'Your booking has been successfully created.' };
+        
   } catch (error) {
     console.error('Error creating booking:', error);
     throw new Error('Failed to create booking. Please try again later.');
   }
+  // redirect('/classes/booking_success');
+  redirect('/classes/booking_success');
+
 }
