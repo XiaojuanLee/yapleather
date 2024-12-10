@@ -11,7 +11,7 @@ import { redirect } from 'next/navigation';
 import DifficultyInput from '@/components/form/DifficultyInput';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import ImageUpdateContainer from '@/components/workshop/ImageUpdateContainer';
+// import ImageUpdateContainer from '@/components/workshop/ImageUpdateContainer';
 import ImageDeleteContainer from '@/components/workshop/ImageDeleteContainer';
 
 

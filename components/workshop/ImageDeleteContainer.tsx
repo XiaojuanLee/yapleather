@@ -1,6 +1,5 @@
 'use client';
 
-import { type actionFunction } from '@/utils/types';
 import { deleteImageAction } from '@/utils/actions';
 
 type ImageInputContainerProps = {
