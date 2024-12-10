@@ -1,7 +1,7 @@
 'use server';
 import db from './db';
 import { redirect } from 'next/navigation';
-import { uploadImage } from './supabase';
+import { deleteImage, uploadImage } from './supabase';
 import { revalidatePath } from 'next/cache';
 
 import {
@@ -279,3 +279,30 @@ export const updateWorkshopAction = async (
     return renderError(error);
   }
 };
+
+
+export async function deleteImageAction(prevState: { workshopId: string, image: string,  imagePaths: string[] }) {
+  try {
+    await deleteImage(prevState.image);
+
+    const updatedImagePaths = prevState.imagePaths.filter(
+      (path) => path !== prevState.image
+    );
+
+    await db.workshops.update({
+      where: {
+        id: prevState.workshopId,
+      },
+      data: {
+        image: JSON.stringify(updatedImagePaths), 
+      },
+    });
+    revalidatePath('/')
+    revalidatePath(`/classes/${prevState.workshopId}`);
+    revalidatePath(`/workshop/${prevState.workshopId}/edit`);
+    redirect(`/workshop/${prevState.workshopId}/edit`);
+
+  } catch (error) {
+    return renderError(error);
+  }
+}

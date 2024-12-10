@@ -1,5 +1,6 @@
 import {
   fetchWorkshopDetails,
+  // updateWorkdshopImageAction,
   updateWorkshopAction,
 } from '@/utils/actions';
 import FormContainer from '@/components/form/FormContainer';
@@ -10,23 +11,43 @@ import { redirect } from 'next/navigation';
 import DifficultyInput from '@/components/form/DifficultyInput';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import ImageUpdateContainer from '@/components/workshop/ImageUpdateContainer';
+import ImageDeleteContainer from '@/components/workshop/ImageDeleteContainer';
 
 
 
-async function EditRentalPage({ params }: { params: { id: string } }) {
+
+async function EditWorkshopPage({ params }: { params: { id: string } }) {
 
 
   const workshop = await fetchWorkshopDetails(params.id);
-
-
-
   if (!workshop) redirect('/');
+
+  const images = JSON.parse(workshop.image); 
+
 
   return (
     <section>
       <h1 className='text-2xl font-semibold my-8 mx-8 capitalize'>Edit Workshop</h1>
+      <div>
+        <ImageDeleteContainer 
+        name={workshop.workshopName}
+        images={images}
+        id={workshop.id} 
+        >
+        <input type='hidden' name='id' value={workshop.id} />
+        </ImageDeleteContainer>
+        
+        {/* <ImageUpdateContainer 
+        name={workshop.workshopName}
+        text='Update Image'
+        action={updateWorkdshopImageAction}
+        images={images}
+        >
+        <input type='hidden' name='id' value={workshop.id} />
+        </ImageUpdateContainer> */}
+      </div>
       <div className='border p-8 rounded-md '>
-
         <FormContainer action={updateWorkshopAction}>
           <input type='hidden' name='id' value={workshop.id} />
           <div className='grid md:grid-cols-2 gap-8 mb-4'>
@@ -106,4 +127,4 @@ async function EditRentalPage({ params }: { params: { id: string } }) {
     
   );
 }
-export default EditRentalPage;
+export default EditWorkshopPage;

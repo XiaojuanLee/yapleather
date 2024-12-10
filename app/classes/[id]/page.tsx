@@ -27,8 +27,8 @@ import { Label } from '@/components/ui/label';
   
     return (
       <section className='container py-10'>
-        <BreadCrumbs name={workshop.workshopName} />
-        <div className='flex flex-col  md:flex-row gap-14'>
+        <BreadCrumbs name={workshop.workshopName}/>
+        <div className='flex flex-col  md:flex-row gap-14 mt-2'>
           <div>
             <ImageContainer images={images} name={workshop.workshopName} />
           </div>

@@ -22,8 +22,8 @@ function FormContainer({
   useEffect(() => {
     if (state.message) {
       toast({ 
-        variant: "destructive",
-        title: "Uh oh! Something went wrong.",
+        // variant: "destructive",
+        // title: "Uh oh! Something went wrong.",
         description: state.message 
         });
     }
