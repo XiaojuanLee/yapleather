@@ -39,13 +39,16 @@ export const createContactUsAction = async (
       },
     });
 
+    revalidatePath('/contact');
+    return { message: 'Thank you for getting in touch! We have received your message and will respond shortly.'
+     }; 
+    
   } catch (error: any) {
     if (error) {
       console.log(error.message);
     }
     return renderError(error);
   }
-  redirect('/');
 };
 
 
