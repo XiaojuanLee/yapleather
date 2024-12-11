@@ -190,7 +190,7 @@ export const createBookingAction = async (
 
     // Get the date and time from the form data
     const scheduledDate = formData.get("scheduledDate")?.toString() || "";
-        const scheduledTime = formData.get("scheduledTime")?.toString() || "";
+    const scheduledTime = formData.get("scheduledTime")?.toString() || "";
     
     // Combine date and time into a DateTime object
     const scheduledDateTime = new Date(`${scheduledDate}T${scheduledTime}`);
@@ -303,9 +303,64 @@ export async function deleteImageAction(prevState: { workshopId: string, image: 
     revalidatePath('/')
     revalidatePath(`/classes/${prevState.workshopId}`);
     revalidatePath(`/workshop/${prevState.workshopId}/edit`);
-    redirect(`/workshop/${prevState.workshopId}/edit`);
-
+  
   } catch (error) {
     return renderError(error);
   }
 }
+
+
+
+export const updateWorkshopImageAction = async (
+  prevState: any,
+  formData: FormData
+): Promise<{ message: string }> => {
+  const workshopId = formData.get('id') as string;
+
+  try {
+    const images = formData.getAll('images');
+    const imagePaths = [];
+    let oldImage: string[] = [];
+
+    for (const image of images) {
+      if (image instanceof File) {
+        const validatedFile = validateWithZodSchema(imageSchema, { image: image });
+        const imagePath = await uploadImage(validatedFile.image);
+        imagePaths.push(imagePath);
+      }
+    }
+    
+
+      const result = await db.workshops.findUnique({
+        where: {
+          id: workshopId,
+        },
+        select: {
+          image: true,
+        },
+      });
+      
+
+      if (result) {
+        oldImage = JSON.parse(result.image);
+        console.log(oldImage);
+      }
+    
+      const mergedImage = oldImage.concat(imagePaths);
+      console.log(mergedImage);
+
+
+    await db.workshops.update({
+      where: {
+        id: workshopId,
+      },
+      data: {
+        image: JSON.stringify(mergedImage),
+      },
+    });
+    revalidatePath(`/rentals/${workshopId}/edit`);
+    return { message: 'Workshop Image Updated Successful' };
+  } catch (error) {
+    return renderError(error);
+  }
+};

@@ -20,10 +20,8 @@ export const uploadImage = async (image: File) => {
 
 
 export const deleteImage = async (image: string) => {
-  
-  const { data, error } = await supabase.storage
-    .from(bucket)
-    .remove([image]);
-  if (error) throw new Error('Image delete failed:', error);
-  console.log(data);
+  const relativePath = image.replace('https://qqpbudqttafvougiykbp.supabase.co/storage/v1/object/public/yapleather/', '');
+  const { data } = await supabase.storage.from(bucket).remove([relativePath]);
+    console.log('Attempt to delete image:', relativePath, { data });
+    if (!data) throw new Error('Image upload failed');
 };

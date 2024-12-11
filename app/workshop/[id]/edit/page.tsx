@@ -1,6 +1,6 @@
 import {
   fetchWorkshopDetails,
-  // updateWorkdshopImageAction,
+  updateWorkshopImageAction,
   updateWorkshopAction,
 } from '@/utils/actions';
 import FormContainer from '@/components/form/FormContainer';
@@ -11,7 +11,7 @@ import { redirect } from 'next/navigation';
 import DifficultyInput from '@/components/form/DifficultyInput';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-// import ImageUpdateContainer from '@/components/workshop/ImageUpdateContainer';
+import ImageUpdateContainer from '@/components/workshop/ImageUpdateContainer';
 import ImageDeleteContainer from '@/components/workshop/ImageDeleteContainer';
 
 
@@ -38,14 +38,13 @@ async function EditWorkshopPage({ params }: { params: { id: string } }) {
         <input type='hidden' name='id' value={workshop.id} />
         </ImageDeleteContainer>
         
-        {/* <ImageUpdateContainer 
-        name={workshop.workshopName}
+        <ImageUpdateContainer 
         text='Update Image'
-        action={updateWorkdshopImageAction}
-        images={images}
+        action={updateWorkshopImageAction}
         >
         <input type='hidden' name='id' value={workshop.id} />
-        </ImageUpdateContainer> */}
+        </ImageUpdateContainer>
+        
       </div>
       <div className='border p-8 rounded-md '>
         <FormContainer action={updateWorkshopAction}>
@@ -106,23 +105,7 @@ async function EditWorkshopPage({ params }: { params: { id: string } }) {
           </div>
           <SubmitButton text='edit workshop' className='mt-12' />
         </FormContainer>
-
- 
-
-
-
-
-
-
-      
-  
-
-
-
       </div>
-
-
-    
     </section>
     
   );
