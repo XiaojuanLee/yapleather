@@ -277,6 +277,10 @@ export const updateWorkshopAction = async (
     });
 
     revalidatePath(`/workshop/${workshopId}/edit`);
+    revalidatePath('/');
+    revalidatePath(`/workshop`);
+    
+
     return { message: 'Update Successful!' };
   } catch (error) {
     return renderError(error);
