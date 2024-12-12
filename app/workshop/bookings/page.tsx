@@ -47,7 +47,7 @@ async function BookingsPage() {
         </TableHeader>
         <TableBody>
           {bookings.map((booking) => {
-            const { id: bookingId, orderTotal, numberOfPeople, fullName, email, phone, scheduledDate, paymentStatus, createdAt } = booking;
+            const { id: bookingId, numberOfPeople, fullName, email, phone, scheduledDate, createdAt } = booking;
             const { workshopName } = booking.Workshops;
 
 
