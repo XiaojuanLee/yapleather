@@ -128,6 +128,33 @@ export const fetchWorkshops = async () => {
 };
 
 
+export const fetchBookings = async () => {
+  const bookings = await db.booking.findMany({
+    include: {
+      Workshops: {
+        select: {
+          workshopName: true,
+        },
+      },
+    },
+    orderBy: {
+      createdAt: 'desc',
+    },
+  });
+  
+  return bookings;
+};
+
+
+export const fetchContact = async () => {
+  const contact = await db.contactUs.findMany({
+    orderBy: {
+      createdAt: 'desc',
+    },
+  });
+  
+  return contact;
+};
 
 export async function deleteWorkshopAction(prevState: { workshopId: string }) {
   const { workshopId } = prevState;
