@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className={inter.className}>
           <Providers>
             <Navbar />
-            <main className='container py-10'>{children}</main>
+            <main>{children}</main>
           </Providers>
 
         <Analytics />
