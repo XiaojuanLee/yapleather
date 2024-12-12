@@ -47,12 +47,13 @@ async function WorkshopsPage() {
             <TableHead>Difficulty</TableHead>
             <TableHead>Number of Ticket</TableHead>
             <TableHead>Sort</TableHead>
+            <TableHead>Category</TableHead>
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {workshops.map((workshop) => {
-            const { id: workshopId, workshopName, price, difficulty, ticket, sort } = workshop;
+            const { id: workshopId, workshopName, price, difficulty, ticket, sort, category } = workshop;
             return (
               <TableRow key={workshopId}>
                 <TableCell>
@@ -67,6 +68,7 @@ async function WorkshopsPage() {
                 <TableCell>{difficulty}</TableCell>
                 <TableCell>{ticket}</TableCell>
                 <TableCell>{sort}</TableCell>
+                <TableCell>{category}</TableCell>
                 
                 
 

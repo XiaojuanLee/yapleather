@@ -13,6 +13,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import ImageUpdateContainer from '@/components/workshop/ImageUpdateContainer';
 import ImageDeleteContainer from '@/components/workshop/ImageDeleteContainer';
+import CategoriesInput from '@/components/form/CategoriesInput';
 
 
 
@@ -72,6 +73,8 @@ async function EditWorkshopPage({ params }: { params: { id: string } }) {
               label='Available ticket quantity'
               defaultValue={workshop.ticket.toString()}
             />
+            {/* categories */}
+            <CategoriesInput />
             
             {/* size */}
             <div>

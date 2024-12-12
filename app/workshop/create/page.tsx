@@ -7,6 +7,7 @@ import DifficultyInput from '@/components/form/DifficultyInput';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import ImageInput from '@/components/form/ImageInput';
+import CategoriesInput from '@/components/form/CategoriesInput';
 
 function CreateWorkshopPage() {
   return (
@@ -37,6 +38,9 @@ function CreateWorkshopPage() {
               type='number'
               label='Available ticket quantity'
             />
+            {/* categories */}
+            <CategoriesInput />
+            
             
             {/* size */}
             <div>

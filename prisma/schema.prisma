@@ -57,6 +57,7 @@ image String
 size String @default("")
 sort Int @default(99)
 ticket Int @default(10)
+category String @default("Others")
 description String
 createdAt DateTime @default(now())
 updatedAt   DateTime   @updatedAt

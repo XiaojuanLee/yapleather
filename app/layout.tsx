@@ -8,6 +8,7 @@ import { Analytics } from '@vercel/analytics/next';
 
 import Footer from "@/components/home/Footer";
 import { Toaster } from "@/components/ui/toaster"
+import Providers from "./providers";
 
 
 
@@ -29,9 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar/>
-        <main>{children}</main>
-        <Toaster />
+          <Providers>
+            <Navbar />
+            <main className='container py-10'>{children}</main>
+          </Providers>
 
         <Analytics />
 

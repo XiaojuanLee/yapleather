@@ -68,8 +68,7 @@ export const createWorkshopAction = async (
     const description = formData.get('description')?.toString() || '';
     const ticketString = formData.get('ticket')?.toString() || '0';
     const ticket = parseInt(ticketString);
-    
-
+    const category = formData.get('category')?.toString() || '0';
 
     const images = formData.getAll('images');
     const imagePaths = [];
@@ -95,6 +94,7 @@ export const createWorkshopAction = async (
         ticket:ticket,
         description: description,
         image: JSON.stringify(imagePaths), 
+        category:category,
       },
     });
 
@@ -117,6 +117,7 @@ export const fetchWorkshops = async () => {
       price: true,
       sort: true,
       ticket: true,
+      category:true,
     },
     orderBy: {
       sort: 'asc',
@@ -147,8 +148,15 @@ export async function deleteWorkshopAction(prevState: { workshopId: string }) {
 
 
 
-export const fetchClasses = async () => {
+export const fetchClasses = async ({
+  category,
+}: {
+    category?: string;
+}) => {
   const workshops = await db.workshops.findMany({
+    where: {
+      category,
+    },
     
     select: {
       id: true,
@@ -259,6 +267,7 @@ export const updateWorkshopAction = async (
     const description = formData.get('description')?.toString() || '';
     const ticketString = formData.get('ticket')?.toString() || '0';
     const ticket = parseInt(ticketString);
+    const category = formData.get('category')?.toString() || '0';
 
 
     await db.workshops.update({
@@ -272,6 +281,7 @@ export const updateWorkshopAction = async (
         size:size,
         sort:sort,
         ticket:ticket,
+        category:category,
         description: description,
       },
     });
