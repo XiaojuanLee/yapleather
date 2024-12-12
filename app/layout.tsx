@@ -7,7 +7,6 @@ import { Analytics } from '@vercel/analytics/next';
 
 
 import Footer from "@/components/home/Footer";
-import { Toaster } from "@/components/ui/toaster"
 import Providers from "./providers";
 
 
