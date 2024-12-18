@@ -40,6 +40,7 @@ export const createContactUsAction = async (
     });
 
     revalidatePath('/contact');
+    revalidatePath(`/workshop/contact`);
     return { message: 'Thank you for getting in touch! We have received your message and will respond shortly.'
      }; 
     
@@ -270,7 +271,7 @@ export const createBookingAction = async (
     console.error('Error creating booking:', error);
     throw new Error('Failed to create booking. Please try again later.');
   }
-  // redirect('/classes/booking_success');
+  revalidatePath(`/workshop/booking`);
   redirect('/classes/booking_success');
 
 }
