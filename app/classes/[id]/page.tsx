@@ -42,6 +42,8 @@ import { Label } from '@/components/ui/label';
                 <p>Description: {workshop.description}</p>
                 <p>Available ticket quantity: {workshop.ticket}</p>
               </div>
+
+              {/* Booking Form */}
               <div className='mr-auto'>
                 <h2 className='text-xl font-bold capitalize mb'>
                   Booking

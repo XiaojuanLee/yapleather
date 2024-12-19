@@ -18,7 +18,7 @@ function HomePage({
           <h2 className="text-3xl mb-4">Leathercraft Workshops</h2>
           <p className="mb-4">Join our workshops and craft your own unique leather items with expert guidance.</p>
         </div>
-        <div className="flex justify-center">
+        <div className="md:flex justify-center">
           <CategoriesList category={searchParams.category} />
         </div>
         <Suspense fallback={<LoadingCards />}>

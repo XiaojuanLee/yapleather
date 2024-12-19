@@ -1,5 +1,5 @@
 import { categories } from '@/utils/categories';
-import { ScrollArea, ScrollBar } from '../ui/scroll-area';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import Link from 'next/link';
 
 function CategoriesList({

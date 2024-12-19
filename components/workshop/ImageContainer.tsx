@@ -30,7 +30,7 @@ function ImageContainer({ images, name }: { images: string[]; name: string }) {
       </div>
 
       {/* Right-side large image display */}
-      <div className="relative h-[500px] w-[700px]">
+      <div className="relative md:h-[500px] md:w-[700px] w-full h-[300px]">
         <Image
           src={selectedImage}
           alt={`${name} selected image`}
