@@ -2,7 +2,7 @@ import LoadingCards from '@/components/card/LoadingCards';
 import Banner from '@/components/home/Banner';
 import WorkshopsContainer from '@/components/home/WorkshopsContainer';
 import { Suspense } from 'react';
-import MyMap from '@/components/home/MyMap';
+//import MyMap from '@/components/home/MyMap';
 import CategoriesList from '@/components/home/CategoriesList';
 
 function HomePage({
@@ -27,7 +27,7 @@ function HomePage({
           />
         </Suspense>
       </section>
-      <MyMap></MyMap>
+      
       
     </div>
   );
