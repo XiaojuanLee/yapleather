@@ -41,33 +41,9 @@ import { Label } from '@/components/ui/label';
                 <p className='text-base mt-1'>Workshop Fee: CA{formatCurrency(workshop.price)} (includes materials)</p>
                 <p>Size: {workshop.size}</p>
                 <p>Description: {workshop.description}</p>
-                {/* <p>Available ticket quantity: {workshop.ticket}</p> */}
+                
               </div>
 
-              {/*  Booking Form
-              <div className='mr-auto'>
-                <h2 className='text-xl font-bold capitalize mb'>
-                  Booking
-                </h2>
-                <FormContainer action={createBookingAction}>
-                  <input type="hidden" name="workshopId" value={workshop.id} />
-                  <div className='mb-2'>
-                    <BookingCalendar name='scheduledDate'/>
-                  </div>
-                  <div className='mb-2'>
-                    <Label>Preferred time</Label>
-                    <BookingSelect name='scheduledTime' />
-                  </div>
-
-                  <FormInput type='number' name='numberOfPeople' label='Number of People' defaultValue='1' />
-                  <FormInput type='text' name='fullName' label='Full Name' />
-                  <FormInput type='email' name='email' label='Email' />
-                  <FormInput type='phone' name='phone' label='Phone' />
-                  <SubmitButton text='Reserve' className='px-24' />
-
-                </FormContainer>
-
-            </div> */}
           </div>
           
           
