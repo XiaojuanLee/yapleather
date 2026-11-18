@@ -1,15 +1,10 @@
-import { BookingCalendar } from '@/components/booking/ bookingCalendar';
-import { BookingSelect } from '@/components/booking/bookingSelect';
+
 import BreadCrumbs from '@/components/workshop/BreadCrumbs';
 import ImageContainer from '@/components/workshop/ImageContainer';
 import { fetchWorkshopDetails } from '@/utils/actions';
 import { formatCurrency } from '@/utils/format';
 import { redirect } from 'next/navigation';
-import FormContainer from '@/components/form/FormContainer';
-import { createBookingAction } from '@/utils/actions';
-import FormInput from '@/components/form/FormInput';
-import { SubmitButton } from '@/components/form/Buttons';
-import { Label } from '@/components/ui/label';
+
 
 
  async function WorkshopDetailsPage({ params }: { params: { id: string } }) {
