@@ -32,6 +32,7 @@ import { Label } from '@/components/ui/label';
           <div>
             <ImageContainer images={images} name={workshop.workshopName} />
           </div>
+          
           <div className='flex flex-col'>
                 <h1 className='text-3xl font-bold capitalize mb-4'>{workshop.workshopName}</h1>
               <div className='mb-4'>
@@ -40,10 +41,10 @@ import { Label } from '@/components/ui/label';
                 <p className='text-base mt-1'>Workshop Fee: CA{formatCurrency(workshop.price)} (includes materials)</p>
                 <p>Size: {workshop.size}</p>
                 <p>Description: {workshop.description}</p>
-                <p>Available ticket quantity: {workshop.ticket}</p>
+                {/* <p>Available ticket quantity: {workshop.ticket}</p> */}
               </div>
 
-              {/* Booking Form */}
+              {/*  Booking Form
               <div className='mr-auto'>
                 <h2 className='text-xl font-bold capitalize mb'>
                   Booking
@@ -66,8 +67,9 @@ import { Label } from '@/components/ui/label';
 
                 </FormContainer>
 
-            </div>
+            </div> */}
           </div>
+          
           
         </div>
         
